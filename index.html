@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PIXELIFY FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .btn-pixel {
+      border: 4px solid black;
+      box-shadow: 4px 4px 0px black;
+      transition: all 0.15s ease;
+    }
+
+    .btn-pixel:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px black;
+    }
+  </style>
+</head>
+
+<body class="bg-[#e5e5e5]">
+
+  <div class="w-screen min-h-screen flex flex-col md:flex-row overflow-hidden">
+
+  <!-- LEFT SIDE -->
+<div class="w-full md:w-1/2 bg-[#e5e5e5] relative overflow-hidden flex flex-col items-center min-h-[72vh] md:min-h-screen pt-6 md:pt-4 px-4 md:px-0">
+
+  <!-- TITLE -->
+  <h1 class="relative z-30 text-[13vw] md:text-[6vw] font-black leading-none self-start ml-2 md:ml-8 mt-2 md:mt-5">
+    print("hello")
+  </h1>
+
+  <!-- IMAGE -->
+  <img
+    src="Frame 193.png"
+    alt="portfolio image"
+    class="relative md:absolute md:bottom-0 md:left-[-2%] z-10
+           w-[112%] md:w-[100%]
+           max-w-none
+           object-contain
+           mt-6 md:mt-0
+           mr-2 md:mr-10"
+  />
+
+</div>
+
+    <!-- RIGHT SIDE -->
+    <div class="w-full md:w-1/2 bg-[#ea63f6] relative overflow-hidden min-h-[45vh] md:min-h-screen">
+
+
+      <!-- CONTENT -->
+      <div class="relative z-20 h-full flex flex-col justify-center px-8 md:px-20 py-16 md:py-0">
+
+        <!-- HEADING -->
+        <h2
+          class="text-white text-2xl md:text-4xl mb-8 md:mb-12 font-bold"
+          style="font-family: 'Pixelify Sans', sans-serif;"
+        >
+          Erm so this is awkward
+        </h2>
+
+        <!-- TEXT -->
+        <div class="text-black text-[1.3rem] md:text-[1.8rem] leading-snug max-w-3xl">
+
+          <p>
+            This website is currently under construction
+            (good things take a second).
+          </p>
+
+          <p class="mt-8 md:mt-12">
+            Until then, here’s a PDF version of my portfolio
+            filled with projects, experiments, research,
+            and visual explorations.
+          </p>
+
+          <p class="mt-8 md:mt-12">
+            Full website coming soon :)
+          </p>
+
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap gap-6 md:gap-10 mt-10 md:mt-14">
+
+          <!-- VIEW -->
+          <button
+            id="viewBtn"
+            class="btn-pixel bg-[#d9d9d9] px-8 md:px-12 py-4 md:py-5 text-black text-lg md:text-2xl font-bold"
+            style="font-family: 'Pixelify Sans', sans-serif;"
+          >
+            VIEW
+          </button>
+
+          <!-- DOWNLOAD -->
+          <a
+            href="portfolio.pdf"
+            download
+            class="btn-pixel bg-[#d9d9d9] px-8 md:px-12 py-4 md:py-5 text-black text-lg md:text-2xl font-bold inline-flex items-center justify-center"
+            style="font-family: 'Pixelify Sans', sans-serif;"
+          >
+            DOWNLOAD
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PDF MODAL -->
+  <div
+    id="pdfModal"
+    class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+  >
+
+    <div class="bg-white w-full md:w-[90%] h-[90%] rounded-xl overflow-hidden relative">
+
+      <!-- CLOSE -->
+      <button
+        id="closeBtn"
+        class="absolute top-4 right-4 bg-black text-white px-5 py-2 z-50"
+      >
+        Close
+      </button>
+
+      <!-- PDF -->
+      <iframe
+        src="portfolio.pdf"
+        class="w-full h-full"
+      ></iframe>
+
+    </div>
+
+  </div>
+
+  <script>
+    const viewBtn = document.getElementById("viewBtn");
+    const pdfModal = document.getElementById("pdfModal");
+    const closeBtn = document.getElementById("closeBtn");
+
+    viewBtn.addEventListener("click", () => {
+      pdfModal.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      pdfModal.classList.add("hidden");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === pdfModal) {
+        pdfModal.classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>
